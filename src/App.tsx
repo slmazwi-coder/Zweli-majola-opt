@@ -16,7 +16,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SearchOverlay from './components/SearchOverlay';
-import GeminiAssistant from './components/GeminiAssistant';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, ArrowUp } from 'lucide-react';
 
@@ -39,11 +38,7 @@ export default function App() {
     switch (currentPage) {
       case 'home':
         return (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  exit= opacity: 0, y: -20 >
             <Hero 
               onBookClick={() => setCurrentPage('book')} 
               onLocationsClick={() => setCurrentPage('locations')} 
@@ -59,22 +54,14 @@ export default function App() {
         );
       case 'services':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <Services onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'frames':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <FramesShowcase />
             <LensOptions onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
@@ -82,54 +69,34 @@ export default function App() {
         );
       case 'locations':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <Locations />
             <BookingForm />
           </motion.div>
         );
       case 'book':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <BookingForm />
           </motion.div>
         );
       case 'about':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <About onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'contact':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <Contact />
             <BookingForm />
           </motion.div>
         );
       case 'faq':
         return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-32"
-          >
+          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
             <FAQ />
             <BookingForm />
           </motion.div>
@@ -149,7 +116,7 @@ export default function App() {
         }} 
         onSearchOpen={() => setIsSearchOpen(true)}
       />
-      
+
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           {renderPage()}
@@ -157,8 +124,7 @@ export default function App() {
       </main>
 
       <Footer />
-      <GeminiAssistant />
-      
+
       <SearchOverlay 
         isOpen={isSearchOpen} 
         onClose={() => setIsSearchOpen(false)} 
@@ -170,7 +136,6 @@ export default function App() {
 
       {/* Sticky Bottom Bar for Mobile */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 flex gap-4 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-
         <button 
           onClick={() => setCurrentPage('book')}
           className="btn-primary flex-grow py-3 text-sm"
@@ -189,9 +154,9 @@ export default function App() {
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
+            initial= opacity: 0, y: -20 
+            animate= opacity: 1, y: 0 
+            exit= opacity: 0, y: -20 
             onClick={scrollToTop}
             className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center z-40 hover:bg-accent transition-colors hidden lg:flex"
           >
@@ -202,4 +167,3 @@ export default function App() {
     </div>
   );
 }
-
