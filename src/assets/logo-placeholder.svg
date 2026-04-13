@@ -1,0 +1,8 @@
+<svg width="160" height="48" viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="158" height="46" rx="10" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 6"/>
+  <path d="M16 30C26 18 38 18 48 30" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="24" r="7" stroke="#94A3B8" stroke-width="2"/>
+  <circle cx="32" cy="24" r="2" fill="#94A3B8"/>
+  <text x="60" y="21" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#64748B">LOGO</text>
+  <text x="60" y="34" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#64748B">PLACEHOLDER</text>
+</svg>

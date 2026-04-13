@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import logo from '../assets/logo-placeholder.svg';
 
 interface HeaderProps {
   currentPage: string;
@@ -38,13 +39,21 @@ export default function Header({ currentPage, onPageChange, onSearchOpen }: Head
         {/* Logo */}
         <button 
           onClick={() => onPageChange('home')}
-          className="flex flex-col items-start group"
+          className="flex items-center gap-3 group"
+          aria-label="Zweli and Majola Optometrists"
         >
-          <span className="text-xl font-display font-bold tracking-tighter text-primary group-hover:text-accent transition-colors">
-            ZWELI & MAJOLA
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 -mt-1">
-            OPTOMETRISTS
+          <img
+            src={logo}
+            alt="Zweli and Majola Optometrists logo"
+            className="h-10 w-auto object-contain"
+          />
+          <span className="flex flex-col items-start">
+            <span className="text-xl font-display font-bold tracking-tighter text-primary group-hover:text-accent transition-colors">
+              ZWELI & MAJOLA
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 -mt-1">
+              OPTOMETRISTS
+            </span>
           </span>
         </button>
 
@@ -107,9 +116,9 @@ export default function Header({ currentPage, onPageChange, onSearchOpen }: Head
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial= opacity: 0, y: -20 
+            animate= opacity: 1, y: 0 
+            exit= opacity: 0, y: -20 
             className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100 lg:hidden overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
