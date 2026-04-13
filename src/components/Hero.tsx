@@ -17,18 +17,10 @@ export default function Hero({ onBookClick, onLocationsClick }: HeroProps) {
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial= opacity: 0, x: -30 
+          animate= opacity: 1, x: 0 
+          transition= duration: 0.8, ease: "easeOut" 
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-            </span>
-            Now open in Kokstad & Matatiele
-          </div>
-          
           <h1 className="text-5xl md:text-7xl font-display font-bold text-primary leading-[1.1] mb-6">
             Vision care that <br />
             <span className="text-accent italic">empowers</span> your life.
@@ -70,9 +62,9 @@ export default function Hero({ onBookClick, onLocationsClick }: HeroProps) {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial= opacity: 0, scale: 0.9 
+          animate= opacity: 1, scale: 1 
+          transition= duration: 1, ease: "easeOut" 
           className="relative"
         >
           <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative">
@@ -87,9 +79,9 @@ export default function Hero({ onBookClick, onLocationsClick }: HeroProps) {
           
           {/* Floating Card */}
           <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            initial= y: 20, opacity: 0 
+            animate= y: 0, opacity: 1 
+            transition= delay: 0.5, duration: 0.8 
             className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[240px]"
           >
             <div className="flex items-center gap-4 mb-3">
