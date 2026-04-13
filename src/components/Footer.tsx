@@ -12,7 +12,7 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="Zweli and Majola Optometrists logo"
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
               <div className="flex flex-col items-start">
                 <span className="text-2xl font-display font-bold tracking-tighter text-white">
