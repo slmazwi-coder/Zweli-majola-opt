@@ -45,7 +45,7 @@ export default function Header({ currentPage, onPageChange, onSearchOpen }: Head
           <img
             src={logo}
             alt="Zweli and Majola Optometrists logo"
-            className="h-16 w-auto object-contain"
+            className="h-22 w-auto object-contain"
           />
           <span className="flex flex-col items-start">
             <span className="text-xl font-display font-bold tracking-tighter text-primary group-hover:text-accent transition-colors">
