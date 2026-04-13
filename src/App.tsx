@@ -38,10 +38,14 @@ export default function App() {
     switch (currentPage) {
       case 'home':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  exit= opacity: 0, y: -20 >
-            <Hero 
-              onBookClick={() => setCurrentPage('book')} 
-              onLocationsClick={() => setCurrentPage('locations')} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Hero
+              onBookClick={() => setCurrentPage('book')}
+              onLocationsClick={() => setCurrentPage('locations')}
             />
             <Services onBookClick={() => setCurrentPage('book')} />
             <About onBookClick={() => setCurrentPage('book')} />
@@ -54,14 +58,22 @@ export default function App() {
         );
       case 'services':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Services onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'frames':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <FramesShowcase />
             <LensOptions onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
@@ -69,65 +81,88 @@ export default function App() {
         );
       case 'locations':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Locations />
             <BookingForm />
           </motion.div>
         );
       case 'book':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <BookingForm />
           </motion.div>
         );
       case 'about':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <About onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'contact':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Contact />
             <BookingForm />
           </motion.div>
         );
       case 'faq':
         return (
-          <motion.div initial= opacity: 0, y: -20  animate= opacity: 1, y: 0  className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <FAQ />
             <BookingForm />
           </motion.div>
         );
       default:
-        return <Hero onBookClick={() => setCurrentPage('book')} onLocationsClick={() => setCurrentPage('locations')} />;
+        return (
+          <Hero
+            onBookClick={() => setCurrentPage('book')}
+            onLocationsClick={() => setCurrentPage('locations')}
+          />
+        );
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header 
-        currentPage={currentPage} 
+      <Header
+        currentPage={currentPage}
         onPageChange={(page) => {
           setCurrentPage(page);
           window.scrollTo(0, 0);
-        }} 
+        }}
         onSearchOpen={() => setIsSearchOpen(true)}
       />
 
       <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          {renderPage()}
-        </AnimatePresence>
+        <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       </main>
 
       <Footer />
 
-      <SearchOverlay 
-        isOpen={isSearchOpen} 
-        onClose={() => setIsSearchOpen(false)} 
+      <SearchOverlay
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
         onNavigate={(page) => {
           setCurrentPage(page);
           window.scrollTo(0, 0);
@@ -136,13 +171,13 @@ export default function App() {
 
       {/* Sticky Bottom Bar for Mobile */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 flex gap-4 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-        <button 
+        <button
           onClick={() => setCurrentPage('book')}
           className="btn-primary flex-grow py-3 text-sm"
         >
           Book an eye test
         </button>
-        <a 
+        <a
           href="tel:0397275230"
           className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary"
         >
@@ -154,9 +189,9 @@ export default function App() {
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
-            initial= opacity: 0, y: -20 
-            animate= opacity: 1, y: 0 
-            exit= opacity: 0, y: -20 
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
             onClick={scrollToTop}
             className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center z-40 hover:bg-accent transition-colors hidden lg:flex"
           >
