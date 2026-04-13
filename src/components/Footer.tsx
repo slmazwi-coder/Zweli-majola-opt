@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../constants';
-import logo from '../assets/logo-placeholder.svg';
+import logo from '../assets/Newlogo.png';
 
 export default function Footer() {
   return (
