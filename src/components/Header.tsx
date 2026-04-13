@@ -116,9 +116,9 @@ export default function Header({ currentPage, onPageChange, onSearchOpen }: Head
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial= opacity: 0, y: -20 
-            animate= opacity: 1, y: 0 
-            exit= opacity: 0, y: -20 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100 lg:hidden overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
