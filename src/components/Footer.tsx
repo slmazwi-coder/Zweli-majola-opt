@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-4 mb-6">
               <img
                 src={logo}
                 alt="Zweli and Majola Optometrists logo"
-                className="h-11 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
               <div className="flex flex-col items-start">
                 <span className="text-2xl font-display font-bold tracking-tighter text-white">
