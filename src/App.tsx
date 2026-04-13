@@ -35,10 +35,10 @@ export default function App() {
   };
 
   const pageMotionProps = {
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: 12 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 },
-    transition: { duration: 0.5, ease: 'easeOut' },
+    exit: { opacity: 0, y: -12 },
+    transition: { duration: 0.35, ease: 'easeOut' },
   };
 
   const renderPage = () => {
@@ -46,10 +46,7 @@ export default function App() {
       case 'home':
         return (
           <motion.div {...pageMotionProps}>
-            <Hero 
-              onBookClick={() => setCurrentPage('book')} 
-              onLocationsClick={() => setCurrentPage('locations')} 
-            />
+            <Hero onBookClick={() => setCurrentPage('book')} onLocationsClick={() => setCurrentPage('locations')} />
             <Services onBookClick={() => setCurrentPage('book')} />
             <About onBookClick={() => setCurrentPage('book')} />
             <FramesShowcase />
@@ -115,26 +112,24 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header 
-        currentPage={currentPage} 
+      <Header
+        currentPage={currentPage}
         onPageChange={(page) => {
           setCurrentPage(page);
           window.scrollTo(0, 0);
-        }} 
+        }}
         onSearchOpen={() => setIsSearchOpen(true)}
       />
 
       <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          {renderPage()}
-        </AnimatePresence>
+        <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       </main>
 
       <Footer />
 
-      <SearchOverlay 
-        isOpen={isSearchOpen} 
-        onClose={() => setIsSearchOpen(false)} 
+      <SearchOverlay
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
         onNavigate={(page) => {
           setCurrentPage(page);
           window.scrollTo(0, 0);
@@ -143,16 +138,10 @@ export default function App() {
 
       {/* Sticky Bottom Bar for Mobile */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 flex gap-4 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-        <button 
-          onClick={() => setCurrentPage('book')}
-          className="btn-primary flex-grow py-3 text-sm"
-        >
+        <button onClick={() => setCurrentPage('book')} className="btn-primary flex-grow py-3 text-sm">
           Book an eye test
         </button>
-        <a 
-          href="tel:0397275230"
-          className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary"
-        >
+        <a href="tel:0397275230" className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary">
           <Phone size={20} />
         </a>
       </div>
@@ -161,10 +150,10 @@ export default function App() {
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.25 }}
             onClick={scrollToTop}
             className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center z-40 hover:bg-accent transition-colors hidden lg:flex"
           >
