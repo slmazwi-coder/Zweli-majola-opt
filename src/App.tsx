@@ -34,19 +34,19 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const pageMotionProps = {
-    initial: { opacity: 0, y: 12 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -12 },
-    transition: { duration: 0.35, ease: 'easeOut' },
-  };
-
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
         return (
-          <motion.div {...pageMotionProps}>
-            <Hero onBookClick={() => setCurrentPage('book')} onLocationsClick={() => setCurrentPage('locations')} />
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+          >
+            <Hero
+              onBookClick={() => setCurrentPage('book')}
+              onLocationsClick={() => setCurrentPage('locations')}
+            />
             <Services onBookClick={() => setCurrentPage('book')} />
             <About onBookClick={() => setCurrentPage('book')} />
             <FramesShowcase />
@@ -58,14 +58,22 @@ export default function App() {
         );
       case 'services':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Services onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'frames':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <FramesShowcase />
             <LensOptions onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
@@ -73,40 +81,65 @@ export default function App() {
         );
       case 'locations':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Locations />
             <BookingForm />
           </motion.div>
         );
       case 'book':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <BookingForm />
           </motion.div>
         );
       case 'about':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <About onBookClick={() => setCurrentPage('book')} />
             <BookingForm />
           </motion.div>
         );
       case 'contact':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <Contact />
             <BookingForm />
           </motion.div>
         );
       case 'faq':
         return (
-          <motion.div {...pageMotionProps} className="pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-32"
+          >
             <FAQ />
             <BookingForm />
           </motion.div>
         );
       default:
-        return <Hero onBookClick={() => setCurrentPage('book')} onLocationsClick={() => setCurrentPage('locations')} />;
+        return (
+          <Hero
+            onBookClick={() => setCurrentPage('book')}
+            onLocationsClick={() => setCurrentPage('locations')}
+          />
+        );
     }
   };
 
@@ -141,7 +174,10 @@ export default function App() {
         <button onClick={() => setCurrentPage('book')} className="btn-primary flex-grow py-3 text-sm">
           Book an eye test
         </button>
-        <a href="tel:0397275230" className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+        <a
+          href="tel:0397275230"
+          className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary"
+        >
           <Phone size={20} />
         </a>
       </div>
@@ -150,10 +186,9 @@ export default function App() {
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             onClick={scrollToTop}
             className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center z-40 hover:bg-accent transition-colors hidden lg:flex"
           >
